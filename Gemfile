@@ -7,6 +7,7 @@ gem "unicorn", "~> 5.1.0"
 gem "logstasher", "0.6.2"
 gem "govuk_app_config"
 group :development, :test do
+  gem "pry"
   gem "simplecov-rcov", require: false
   gem "simplecov", require: false
   gem "govuk-lint"

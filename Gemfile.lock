@@ -52,6 +52,7 @@ GEM
     crass (1.0.3)
     debug_inspector (0.0.3)
     diff-lcs (1.3)
+    docile (1.1.5)
     erubi (1.7.0)
     factory_girl (4.9.0)
       activesupport (>= 3.0.0)
@@ -68,6 +69,7 @@ GEM
     hashdiff (0.3.7)
     i18n (0.9.3)
       concurrent-ruby (~> 1.0)
+    json (2.1.0)
     kgio (2.11.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -166,6 +168,13 @@ GEM
     scss_lint (0.56.0)
       rake (>= 0.9, < 13)
       sass (~> 3.5.3)
+    simplecov (0.15.1)
+      docile (~> 1.1.0)
+      json (>= 1.8, < 3)
+      simplecov-html (~> 0.10.0)
+    simplecov-html (0.10.2)
+    simplecov-rcov (0.2.3)
+      simplecov (>= 0.4.1)
     sprockets (3.7.1)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -206,10 +215,15 @@ DEPENDENCIES
   logstasher (= 0.6.2)
   rails (= 5.1.0)
   rspec-rails
+  simplecov
+  simplecov-rcov
   timecop
   unicorn (~> 5.1.0)
   web-console (~> 2.0)
   webmock
+
+RUBY VERSION
+   ruby 2.4.2p198
 
 BUNDLED WITH
    1.16.1

@@ -11,6 +11,8 @@ gem "govuk-content-schema-test-helpers"
 gem "sass-rails"
 gem "uglifier"
 gem "quiet_assets"
+gem "capybara"
+gem "poltergeist"
 group :development, :test do
   gem "pry"
   gem "simplecov-rcov", require: false

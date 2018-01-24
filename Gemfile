@@ -8,6 +8,9 @@ gem "logstasher", "0.6.2"
 gem "govuk_app_config"
 gem "addressable"
 gem "govuk-content-schema-test-helpers"
+gem "sass-rails"
+gem "uglifier"
+gem "quiet_assets"
 group :development, :test do
   gem "pry"
   gem "simplecov-rcov", require: false

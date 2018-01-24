@@ -4,6 +4,7 @@ gem "rails", "5.1.0"
 gem "unicorn", "~> 5.1.0"
 gem "logstasher", "0.6.2"
 group :development, :test do
+  gem "govuk-lint"
   gem "factory_girl_rails"
   gem "timecop"
   gem "webmock", require: false

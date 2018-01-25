@@ -1,1 +1,11 @@
 <%= render "govuk_component/title", title: "Topics" %>
+
+<div>
+  <ul>
+    <% @level_one_taxons.each do |taxon| %>
+      <li>
+        <%= link_to(taxon["title"], taxon["base_path"] ) %>
+      </li>
+    <% end %>
+  </ul>
+</div>

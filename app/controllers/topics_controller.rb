@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
   def index
-    render status: 200
+    @level_one_taxons = Services.root_taxons
   end
 end

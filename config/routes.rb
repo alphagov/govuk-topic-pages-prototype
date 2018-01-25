@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   get "/", to: "welcome#index"
   get "/topics", to: "topics#index"
 
+  get "/topics/*path", to: "topics#show"
+
   root to: "topics#index"
 end

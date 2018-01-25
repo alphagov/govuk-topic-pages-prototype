@@ -4,7 +4,7 @@
   <ul>
     <% @level_one_taxons.each do |taxon| %>
       <li>
-        <%= link_to(taxon["title"], taxon["base_path"] ) %>
+        <%= link_to(taxon["title"], "/topics/#{taxon["base_path"]}" ) %>
       </li>
     <% end %>
   </ul>

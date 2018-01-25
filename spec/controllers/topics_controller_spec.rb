@@ -14,4 +14,18 @@ RSpec.describe TopicsController, type: :controller do
       expect(subject).to render_template("topics/index")
     end
   end
+
+  describe "GET #show" do
+    it "returns success when passed valid path for a taxon" do
+      get :show, params: { path: "foo/bar" }
+
+      expect(response).to have_http_status(:success)
+    end
+
+    it "renders the :show template" do
+      get :show, params: { path: "foo/bar" }
+
+      expect(subject).to render_template("topics/show")
+    end
+  end
 end

@@ -25,6 +25,7 @@ group :development, :test do
   gem "timecop"
   gem "webmock", require: false
   gem "rspec-rails"
+  gem "rails-controller-testing"
   gem "byebug" # Comes standard with Rails
 end
 

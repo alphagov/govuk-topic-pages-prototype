@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
   def index
-    @level_one_taxons = Services.root_taxons
+    @level_one_taxons = Taxons.new.level_one_taxons
   end
 end

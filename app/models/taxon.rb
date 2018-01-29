@@ -7,6 +7,14 @@ class Taxon
     content_item["title"]
   end
 
+  def child_taxons
+    content_item.dig("links", "child_taxons")
+  end
+
+  def children?
+    child_taxons.present?
+  end
+
   private
 
   def content_item

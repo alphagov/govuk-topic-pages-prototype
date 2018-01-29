@@ -1,1 +1,13 @@
 <%= render "govuk_component/title", title: @taxon.title %>
+
+<div>
+  <ul>
+    <% if @taxon.children? %>
+      <% @taxon.child_taxons.each do |child_taxon| %>
+        <li>
+          <%= link_to(child_taxon["title"], "/topics#{child_taxon["base_path"]}" ) %>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

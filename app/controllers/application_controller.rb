@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate
+  include Slimmer::GovukComponents
 
   protect_from_forgery with: :exception
 

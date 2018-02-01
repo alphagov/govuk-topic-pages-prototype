@@ -14,10 +14,10 @@
 </div>
 
 <div>
-  <% if @tagged_content.length > 0 %>
-  <h2>Content Items</h2>
+  <% if @tagged_content.search_results_count > 0 %>
+    <h2>Content Items - <%= @tagged_content.search_results_count %></h2>
     <ul>
-      <% @tagged_content.each do |content_item| %>
+      <% @tagged_content.search_results.each do |content_item| %>
         <li>
           <%= link_to(content_item["title"], "#{content_item["link"]}" ) %>
         </li>

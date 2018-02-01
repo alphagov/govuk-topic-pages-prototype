@@ -15,6 +15,10 @@ class Taxon
     child_taxons.present?
   end
 
+  def content_id
+    content_item["content_id"]
+  end
+
   private
 
   def content_item

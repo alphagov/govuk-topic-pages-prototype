@@ -19,6 +19,10 @@ class Taxon
     content_item["content_id"]
   end
 
+  def tagged_content_count(content_id)
+    RummagerSearch.new(content_id).search_results_count
+  end
+
   private
 
   def content_item

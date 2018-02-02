@@ -16,4 +16,14 @@ RSpec.describe RummagerSearch, type: :model do
       expect(results.length).to eq(2)
     end
   end
+
+  describe "#search_results_count" do
+    it "should give the number of results returned from rummager" do
+      stub_rummager("12345")
+
+      results_count = RummagerSearch.new("12345").search_results_count
+
+      expect(results_count).to eq(2)
+    end
+  end
 end

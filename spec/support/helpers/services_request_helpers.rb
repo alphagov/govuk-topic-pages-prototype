@@ -31,7 +31,8 @@ module ServicesRequestHelpers
           "title" => "Second Tagged Content",
           "link" => "/another/link"
         }
-      ]
+      ],
+      "total" => 2
     }
   end
 end

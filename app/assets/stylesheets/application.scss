@@ -1,6 +1,7 @@
 // From govuk_frontend_toolkit
- @import '_grid_layout.scss';
- @import '_typography.scss';
+@import '_colours.scss';
+@import '_grid_layout.scss';
+@import '_typography.scss';
 
  // Application-wide styles - we should move to components when implementing future designs.
 body {
@@ -10,4 +11,11 @@ body {
  h2 {
   margin: $gutter 0 $gutter-one-third;
   @include bold-24;
+ }
+
+.sub-topics-tagged-content-count {
+  background-color: $grey-3;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 14px;
  }

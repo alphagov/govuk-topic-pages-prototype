@@ -11,6 +11,10 @@ class RummagerSearch
     @search_results = rummager_search["results"]
   end
 
+  def search_results_count
+    @results_count = rummager_search["total"]
+  end
+
   private
 
   def rummager_search

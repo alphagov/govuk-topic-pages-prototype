@@ -21,6 +21,7 @@
       <% @tagged_content.search_results.each do |content_item| %>
         <li>
           <%= link_to(content_item["title"], "#{content_item["link"]}" ) %>
+          <span class="topics-document-type-stats"><%= content_item["format"] %></span>
         </li>
       <% end %>
     </ul>

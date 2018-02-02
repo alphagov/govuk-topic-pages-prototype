@@ -25,11 +25,13 @@ module ServicesRequestHelpers
       "results" => [
         {
           "title" => "A Tagged Content",
-          "link" => "/link/to/content"
+          "link" => "/link/to/content",
+          "format" => "guide"
         },
         {
           "title" => "Second Tagged Content",
-          "link" => "/another/link"
+          "link" => "/another/link",
+          "format" => "publication"
         }
       ],
       "total" => 2

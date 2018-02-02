@@ -8,9 +8,23 @@ body {
   @include core-19;
 }
 
- h2 {
+h2 {
   margin: $gutter 0 $gutter-one-third;
   @include bold-24;
+}
+
+ul {
+  li {
+  list-style-type: none;
+  margin: 5px 0
+  }
+}
+
+.topics-document-type-stats {
+  background-color: $grey-3;
+  padding: 2px 5px;
+  border-radius: 5px;
+  font-size: 14px;
  }
 
 .sub-topics-tagged-content-count {

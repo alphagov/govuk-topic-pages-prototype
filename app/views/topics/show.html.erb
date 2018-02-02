@@ -7,6 +7,7 @@
       <% @taxon.child_taxons.each do |child_taxon| %>
         <li>
           <%= link_to(child_taxon["title"], "/topics#{child_taxon["base_path"]}" ) %>
+          <span class="sub-topics-tagged-content-count">tagged content: <%= @taxon.tagged_content_count(child_taxon["content_id"]) %></span>
         </li>
       <% end %>
     </ul>

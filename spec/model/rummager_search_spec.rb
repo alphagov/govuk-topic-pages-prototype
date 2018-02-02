@@ -9,7 +9,7 @@ RSpec.describe RummagerSearch, type: :model do
 
       results = RummagerSearch.new("12345").search_results
 
-      results_keys = ["title", "link"].sort
+      results_keys = ["title", "link", "format"].sort
       results.each do |result|
         expect(result.keys).to include(*results_keys)
       end

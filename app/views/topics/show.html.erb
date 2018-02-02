@@ -17,10 +17,21 @@
 <div>
   <% if @tagged_content.search_results_count > 0 %>
     <h2>Content Items - <%= @tagged_content.search_results_count %></h2>
+    <div class="topics-document-type-stats topics-document-type-list">
+      <ul>
+        <% document_type_count(@tagged_content.search_results).each do |document_type, count| %>
+          <li>
+            <%= document_type %>: <%= count %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
     <ul>
       <% @tagged_content.search_results.each do |content_item| %>
         <li>
           <%= link_to(content_item["title"], "#{content_item["link"]}" ) %>
+          <span class="topics-document-type-stats"><%= content_item["format"] %></span>
         </li>
       <% end %>
     </ul>

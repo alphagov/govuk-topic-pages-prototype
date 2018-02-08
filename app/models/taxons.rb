@@ -3,6 +3,6 @@ class Taxons
   end
 
   def level_one_taxons
-    Services.root_taxons
+    Services.content_store.content_item('/').dig('links', 'level_one_taxons')
   end
 end

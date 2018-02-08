@@ -26,7 +26,7 @@ RSpec.describe Taxons, type: :model do
     end
 
     it "returns a list of level one taxons" do
-      expect(@taxons.length).to eq(2)
+      expect(@taxons.length).to eq(3)
     end
 
     it "returns the title and base_path of a taxon" do

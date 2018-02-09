@@ -32,7 +32,7 @@
         <div class="document-type-group-list">
           <h3><%= document_type.humanize %>:</h3>
           <ul>
-            <% content_items.each do |item| %>
+            <% content_items.take(5).each do |item| %>
               <li>
                 <%= link_to(item["title"], "#{item["link"]}" ) %>
               </li>

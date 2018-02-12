@@ -33,3 +33,16 @@ ul {
   border-radius: 5px;
   font-size: 14px;
  }
+
+.tagged-content-groups {
+  margin: $gutter 0 0;
+}
+
+.document-type-group-list {
+  margin: 0 0 $gutter;
+}
+
+h3 {
+  margin-bottom: $gutter-one-third;
+  @include bold-19;
+}

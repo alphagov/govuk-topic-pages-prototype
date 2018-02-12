@@ -27,13 +27,19 @@
       </ul>
     </div>
 
-    <ul>
-      <% @tagged_content.search_results.each do |content_item| %>
-        <li>
-          <%= link_to(content_item["title"], "#{content_item["link"]}" ) %>
-          <span class="topics-document-type-stats"><%= content_item["format"] %></span>
-        </li>
+    <div class="tagged-content-groups">
+      <% grouped_tagged_content(@tagged_content.search_results).each do |document_type, content_items| %>
+        <div class="document-type-group-list">
+          <h3><%= document_type.humanize %>:</h3>
+          <ul>
+            <% content_items.each do |item| %>
+              <li>
+                <%= link_to(item["title"], "#{item["link"]}" ) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       <% end %>
-    </ul>
+    </div>
   <% end %>
 </div>

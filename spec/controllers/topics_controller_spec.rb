@@ -23,7 +23,7 @@ RSpec.describe TopicsController, type: :controller do
       @example_schema = example_content_schema("taxon", "taxon_with_child_taxons")
       @path = "foo/bar"
       stub_content_store("/#{@path}", @example_schema)
-      stub_rummager(@example_schema["content_id"])
+      stub_any_rummager_search
     end
 
     it "returns success when passed valid path for a taxon" do

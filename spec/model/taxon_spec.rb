@@ -60,7 +60,7 @@ RSpec.describe Taxon, type: :model do
     it "should return the count for a child taxon tagged content" do
       example_schema_with_children = example_content_schema('taxon', 'taxon_with_child_taxons')
       stub_content_store("/education", example_schema_with_children)
-      stub_rummager(example_schema_with_children["content_id"])
+      stub_rummager
 
       expect(Taxon.new("education").tagged_content_count(example_schema_with_children["content_id"])).to eq(2)
     end

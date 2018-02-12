@@ -1,0 +1,14 @@
+<%= render "govuk_component/title", title: @taxon.title %>
+
+<div class="list-page">
+  <h2 class="list-page__title"><%= @tagged_content.document_type.humanize %> Items - <%= @tagged_content.search_results_count %></h2>
+  <div>
+    <ul class="list-page__content-list">
+      <% @tagged_content.search_results.each do |item| %>
+        <li class="list-page__content-item">
+          <%= link_to(item["title"], "#{item["link"]}" ) %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

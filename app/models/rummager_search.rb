@@ -1,10 +1,11 @@
 class RummagerSearch
   PAGE_SIZE_TO_GET_EVERYTHING = 1000
 
-  attr_reader :content_id
+  attr_reader :content_id, :document_type
 
-  def initialize(content_id)
+  def initialize(content_id, document_type = nil)
     @content_id = content_id
+    @document_type = document_type
   end
 
   def search_results
@@ -22,10 +23,14 @@ class RummagerSearch
   end
 
   def search_params
-    {
+    params = {
       start: 0,
       count: PAGE_SIZE_TO_GET_EVERYTHING,
       filter_taxons: [content_id]
     }
+
+    params.merge!({ filter_format: [document_type] }) if document_type.present?
+
+    params
   end
 end

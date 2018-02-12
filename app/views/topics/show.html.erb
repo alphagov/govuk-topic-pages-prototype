@@ -1,11 +1,11 @@
 <%= render "govuk_component/title", title: @taxon.title %>
 
-<div>
+<div class="sub-topics-wrapper">
   <% if @taxon.children? %>
     <h2>Sub Topics</h2>
-    <ul>
+    <ul class="sub-topics-list">
       <% @taxon.child_taxons.each do |child_taxon| %>
-        <li>
+        <li class="sub-topics-item">
           <%= link_to(child_taxon["title"], "/topics#{child_taxon["base_path"]}" ) %>
           <span class="sub-topics-tagged-content-count">tagged content: <%= @taxon.tagged_content_count(child_taxon["content_id"]) %></span>
         </li>

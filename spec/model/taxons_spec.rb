@@ -7,7 +7,7 @@ RSpec.describe Taxons, type: :model do
   describe "#level_one_taxons" do
 
     before(:each) do
-      root_taxon = content_item_for_base_path("/").merge(
+      @root_taxon = content_item_for_base_path("/").merge(
         "links": {
           "level_one_taxons": [
             {
@@ -21,12 +21,16 @@ RSpec.describe Taxons, type: :model do
           ]
         }
       )
-      content_store_has_item("/", root_taxon)
+      content_store_has_item("/", @root_taxon)
       @taxons = subject.level_one_taxons
     end
 
-    it "returns a list of level one taxons" do
-      expect(@taxons.length).to eq(3)
+    it "returns correct number of level one taxons" do
+      number_of_live_taxons = @root_taxon[:links][:level_one_taxons].length
+
+      expected_number = number_of_live_taxons + number_of_draft_taxon_files
+
+      expect(@taxons.length).to eq(expected_number)
     end
 
     it "returns the title and base_path of a taxon" do
@@ -36,5 +40,10 @@ RSpec.describe Taxons, type: :model do
         expect(taxon.keys).to include(*taxon_keys)
       end
     end
+  end
+
+  def number_of_draft_taxon_files
+    location = Rails.root.join("lib", "data")
+    Dir[File.join(location, '**', '*')].count { |file| File.file?(file) }
   end
 end

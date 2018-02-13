@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Taxons, type: :model do
   include ContentSchemaHelpers
+  include DraftTaxonHelper
 
   subject { described_class.new }
   describe "#level_one_taxons" do
@@ -43,7 +44,6 @@ RSpec.describe Taxons, type: :model do
   end
 
   def number_of_draft_taxon_files
-    location = Rails.root.join("lib", "data")
-    Dir[File.join(location, '**', '*')].count { |file| File.file?(file) }
+    Dir[File.join(file_location, '**', '*')].count { |file| File.file?(file) }
   end
 end

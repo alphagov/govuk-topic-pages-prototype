@@ -1,4 +1,6 @@
 class Taxons
+  include DraftTaxonHelper
+
   def initialize
   end
 
@@ -16,20 +18,7 @@ class Taxons
     draft_taxons.keep_if { |taxon| level_one_taxon?(taxon) }
   end
 
-  def draft_taxons
-    taxons = []
-    draft_taxon_files.each do |file|
-      taxons.push(*JSON.parse(File.read(file)))
-    end
-    taxons
-  end
-
   def level_one_taxon?(taxon)
     taxon["links"]["parent_taxons"].blank?
-  end
-
-  def draft_taxon_files
-    location = Rails.root.join("lib", "data", "draft")
-    Dir.glob("#{location}/*")
   end
 end

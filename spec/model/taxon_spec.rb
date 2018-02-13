@@ -65,5 +65,21 @@ RSpec.describe Taxon, type: :model do
       expect(Taxon.new("education").tagged_content_count(example_schema_with_children["content_id"])).to eq(2)
     end
   end
-end
 
+  describe "draft taxons" do
+    before(:each) do
+      @topic_taxon = Taxon.new("transport/all")
+      content_store_does_not_have_item("/transport/all")
+    end
+
+    it "should return content item title for a draft taxon" do
+      expect(@topic_taxon.title).to eq("Transport")
+    end
+
+    it "should return associated child taxons" do
+      child_taxons = @topic_taxon.child_taxons
+
+      expect(child_taxons.first["title"]).to eq("Driving and road transport")
+    end
+  end
+end

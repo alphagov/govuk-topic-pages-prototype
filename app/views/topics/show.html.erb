@@ -34,7 +34,7 @@
           <ul>
             <% content_items.take(5).each do |item| %>
               <li>
-                <%= link_to(item["title"], "#{item["link"]}" ) %>
+                <%= link_to(item["title"], "https://gov.uk#{item["link"]}" ) %>
               </li>
             <% end %>
           </ul>

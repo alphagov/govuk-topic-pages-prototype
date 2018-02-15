@@ -20,9 +20,8 @@ RSpec.describe TopicsController, type: :controller do
 
   describe "GET #show" do
     before(:each) do
-      @example_schema = example_content_schema("taxon", "taxon_with_child_taxons")
       @path = "foo/bar"
-      stub_content_store("/#{@path}", @example_schema)
+      content_store_has_item("/#{@path}")
       stub_any_rummager_search
     end
 

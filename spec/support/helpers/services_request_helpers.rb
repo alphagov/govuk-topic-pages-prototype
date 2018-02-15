@@ -3,10 +3,6 @@ require 'gds_api/test_helpers/rummager'
 
 module ServicesRequestHelpers
   include GdsApi::TestHelpers::Rummager
-  
-  def stub_content_store(base_path, return_value)
-    allow(Services.content_store).to receive(:content_item).with(base_path).and_return(return_value)
-  end
 
   def stub_rummager
     allow(Services.rummager).to receive(:search).and_return(rummager_results)

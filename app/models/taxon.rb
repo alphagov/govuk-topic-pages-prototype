@@ -23,13 +23,13 @@ class Taxon
     RummagerSearch.new(content_id).search_results_count
   end
 
+  def base_path
+    "/#{@base_path}"
+  end
+
   private
 
   def content_item
     @content_item ||= Services.content_store.content_item(base_path)
-  end
-
-  def base_path
-    "/#{@base_path}"
   end
 end

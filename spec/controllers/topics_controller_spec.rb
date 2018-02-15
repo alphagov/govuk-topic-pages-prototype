@@ -5,6 +5,10 @@ RSpec.describe TopicsController, type: :controller do
   include ServicesRequestHelpers
 
   describe "GET #index" do
+    before(:each) do
+      content_store_has_item("/")
+    end
+
     it "returns success" do
       get :index
 

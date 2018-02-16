@@ -25,6 +25,10 @@ class Taxon
     RummagerSearch.new(content_id).search_results_count
   end
 
+  def base_path
+    "/#{@base_path}"
+  end
+
   private
 
   def content_item
@@ -39,9 +43,5 @@ class Taxon
     draft_taxons.each do |taxon|
       return taxon if taxon["base_path"] == base_path
     end
-  end
-
-  def base_path
-    "/#{@base_path}"
   end
 end

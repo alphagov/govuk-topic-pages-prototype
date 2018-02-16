@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.describe RummagerSearch, type: :model do
   include ServicesRequestHelpers
 
+  let(:subject) { described_class.new("12345") }
+
   describe "#search_results" do
     it "should return rummager search results" do
-      stub_rummager("12345")
+      stub_rummager
 
-      results = RummagerSearch.new("12345").search_results
+      results = subject.search_results
 
       results_keys = ["title", "link", "format"].sort
       results.each do |result|
@@ -19,9 +21,9 @@ RSpec.describe RummagerSearch, type: :model do
 
   describe "#search_results_count" do
     it "should give the number of results returned from rummager" do
-      stub_rummager("12345")
+      stub_rummager
 
-      results_count = RummagerSearch.new("12345").search_results_count
+      results_count = subject.search_results_count
 
       expect(results_count).to eq(2)
     end

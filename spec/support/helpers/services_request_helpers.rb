@@ -5,26 +5,23 @@ module ServicesRequestHelpers
   include GdsApi::TestHelpers::Rummager
 
   def stub_rummager
-    allow(Services.rummager).to receive(:search).and_return(rummager_results)
+    allow(Services.rummager).to receive(:search_enum).and_return(rummager_results)
   end
 
   private
 
   def rummager_results
-    {
-      "results" => [
-        {
-          "title" => "A Tagged Content",
-          "link" => "/link/to/content",
-          "format" => "guide"
-        },
-        {
-          "title" => "Second Tagged Content",
-          "link" => "/another/link",
-          "format" => "publication"
-        }
-      ],
-      "total" => 2
-    }
+    [
+      {
+        "title" => "A Tagged Content",
+        "link" => "/link/to/content",
+        "format" => "guide"
+      },
+      {
+        "title" => "Second Tagged Content",
+        "link" => "/another/link",
+        "format" => "publication"
+      }
+    ]
   end
 end

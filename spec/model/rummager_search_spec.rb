@@ -15,7 +15,7 @@ RSpec.describe RummagerSearch, type: :model do
       results.each do |result|
         expect(result.keys).to include(*results_keys)
       end
-      expect(results.length).to eq(2)
+      expect(results.count).to eq(2)
     end
   end
 

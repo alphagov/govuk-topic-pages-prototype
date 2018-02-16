@@ -9,17 +9,17 @@ class RummagerSearch
   end
 
   def search_results
-    @search_results = rummager_search["results"]
+    @search_results = rummager_search
   end
 
   def search_results_count
-    @results_count = rummager_search["total"]
+    @results_count = rummager_search.count
   end
 
   private
 
   def rummager_search
-    @rummager_results ||= Services.rummager.search(search_params)
+    @rummager_results ||= Services.rummager.search_enum(search_params, page_size: PAGE_SIZE_TO_GET_EVERYTHING)
   end
 
   def search_params

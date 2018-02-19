@@ -4,6 +4,10 @@ RSpec.describe DocumentTypeConstraint, type: :routing do
   describe "#match?" do
     let(:request) { double("request") }
 
+    before :each do
+      allow_any_instance_of(described_class).to receive(:load_document_types).and_return(["publication", "news_article", "speech"])
+    end
+
     context "when request has correct params" do
       before :each do
         allow(request).to receive(:path_parameters).and_return({

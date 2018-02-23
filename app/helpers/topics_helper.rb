@@ -17,7 +17,7 @@ module TopicsHelper
 
   def grouped_tagged_content(tagged_content)
     grouped_content = {}
-    
+
     tagged_content.each do |content_item|
       document_format = content_item["format"]
 
@@ -29,5 +29,11 @@ module TopicsHelper
     end
 
     grouped_content.sort_by {|_key, value| value.count}.reverse.to_h
+  end
+
+  def finder_url_and_path(taxon_path, document_type)
+    finder_app_url = ENV['FINDER_APP_URL'] || "https://finder-frontend-pr-411.herokuapp.com/find-all-the-things!11!?"
+    filters = { taxons: taxon_path, content_purpose_document_supertype: document_type }
+    finder_app_url + filters.to_query
   end
 end

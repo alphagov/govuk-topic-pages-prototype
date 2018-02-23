@@ -9,8 +9,15 @@ class Taxon
     content_item["title"]
   end
 
+  def description
+    content_item["description"]
+  end
+
   def child_taxons
-    content_item.dig("links", "child_taxons")
+    children = content_item.dig("links", "child_taxons")
+    if children.present?
+      children.sort_by { |t| t["title"] }
+    end
   end
 
   def children?
@@ -19,6 +26,13 @@ class Taxon
 
   def content_id
     content_item["content_id"]
+  end
+
+  def root_taxon
+    parent_taxons = content_item.dig("links", "parent_taxons")
+    if parent_taxons.present?
+      parent_taxons.first
+    end
   end
 
   def tagged_content_count(content_id)

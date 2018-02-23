@@ -1,46 +1,234 @@
-<%= render "govuk_component/title", title: @taxon.title %>
+<% body_class = "topic-page" %>
+<div class="topic-header">
+  <div class="topic-header-inner">
+    <div class="grid-row">
+      <%= render "govuk_component/beta_label", {} %>
+    </div>
 
+    <div class="grid-row">
+      <div class="column-two-thirds">
+        <% if @taxon.root_taxon.present? %>
+          <p class="part-of">Part of <a href="/topics<%= @taxon.root_taxon["base_path"] %>"><%= @taxon.root_taxon["title"] %></a></p>
+        <% end %>
+
+        <%= render "govuk_component/title", title: @taxon.title %>
+
+        <p class="pub-c-lead-paragraph"><%= @taxon.description %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<% if @taxon.children? %>
 <div class="sub-topics-wrapper">
-  <% if @taxon.children? %>
-    <h2>Sub Topics</h2>
+  <div class="sub-topics-inner">
+    <h2>Explore this topic</h2>
     <ul class="sub-topics-list">
       <% @taxon.child_taxons.each do |child_taxon| %>
         <li class="sub-topics-item">
-          <%= link_to(child_taxon["title"], "/topics#{child_taxon["base_path"]}" ) %>
-          <span class="sub-topics-tagged-content-count">tagged content: <%= @taxon.tagged_content_count(child_taxon["content_id"]) %></span>
+          <h3><%= link_to(child_taxon["title"], "/topics#{child_taxon["base_path"]}" ) %></h3>
+          <p><%= child_taxon["description"] %></p>
         </li>
       <% end %>
     </ul>
-  <% end %>
+  </div>
 </div>
+<% end %>
 
-<div>
-  <% if @tagged_content.search_results_count > 0 %>
-    <h2>Content Items - <%= @tagged_content.search_results_count %></h2>
-    <div class="topics-document-type-stats topics-document-type-list">
-      <ul>
-        <% document_type_count(@tagged_content.search_results).each do |document_type, count| %>
-          <li>
-            <%= document_type %>: <%= count %>
-          </li>
-        <% end %>
-      </ul>
+<div class="topic-content">
+  <div class="topic-content-inner">
+
+    <div class="topic-section">
+      <h2>Services</h2>
+
+      <div class="grid-row">
+        <div class="column-two-thirds">
+
+          <ul class="services-list">
+            <li>
+              <h3><a href="#">Learn to drive a car: step by step</a></h3>
+              <p>Check what you need to do to learn to drive.</p>
+            </li>
+
+            <li>
+              <h3><a href="#">Become an apprentice</a></h3>
+              <p>Becoming an apprentice - what to expect, apprenticeship levels, pay and training, making an application, complaining about an apprenticeship</p>
+            </li>
+
+            <li>
+              <h3><a href="#">Find an apprenticeship</a></h3>
+              <p>Register your profile, search vacancies and apply for an apprenticeship - you must be 16 or over</p>
+            </li>
+          </ul>
+
+          <p><a href="#">More services</a></p>
+        </div>
+      </div>
     </div>
 
-    <div class="tagged-content-groups">
-      <% grouped_tagged_content(@tagged_content.search_results).each do |document_type, content_items| %>
-        <div class="document-type-group-list">
-          <h3><%= document_type.humanize %>:</h3>
-          <ul>
-            <% content_items.take(5).each do |item| %>
-              <li>
-                <%= link_to(item["title"], "https://gov.uk#{item["link"]}" ) %>
-              </li>
-            <% end %>
+    <div class="topic-section">
+      <h2>Guidance and regulations</h2>
+
+      <div class="grid-row">
+        <div class="column-two-thirds">
+          <h3>Guidance</h3>
+
+          <ul class="services-list">
+            <li>
+              <h3><a href="#">Service title</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quod! Quos incidunt veritatis, illo modi molestias harum.</p>
+            </li>
           </ul>
-          <%= link_to("See more", "/topics#{@taxon.base_path}/#{document_type}" ) %>
+
+          <p><a href="#">More guidance</a></p>
+        </div>
+
+        <div class="column-one-third">
+          <h3>Regulations</h3>
+
+          <ul class="services-list">
+            <li>
+              <h3><a href="#">Service title</a></h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, quod! Quos incidunt veritatis, illo modi molestias harum.</p>
+            </li>
+          </ul>
+
+          <p><a href="#">More regulations</a></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="topic-section">
+      <h2>News and communications</h2>
+      <div class="grid-row">
+
+        <div class="column-one-third">
+          <h3>News</h3>
+
+          <ul class="time-based-list">
+            <li>
+              <p><a href="#">Measures announced to ensure talented trainees get into teaching</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="#">New members announced for Ofqual board</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+                <li>DfE and Ofqual</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="">Education Secretary tours the Midlands and North of England</a></p>
+              <time>14 February 2018</time>
+              <ul class="attributes">
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+          </ul>
+
+          <p><a href="#">More news</a></p>
+        </div>
+
+        <div class="column-one-third">
+          <h3>Speeches and statements</h3>
+
+          <ul class="time-based-list">
+            <li>
+              <p><a href="#">Measures announced to ensure talented trainees get into teaching</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="#">New members announced for Ofqual board</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+                <li>DfE and Ofqual</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="">Education Secretary tours the Midlands and North of England</a></p>
+              <time>14 February 2018</time>
+              <ul class="attributes">
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+
+        <div class="column-one-third">
+          <h3>Updates and alerts</h3>
+
+          <ul class="time-based-list">
+            <li>
+              <p><a href="#">Measures announced to ensure talented trainees get into teaching</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="#">New members announced for Ofqual board</a></p>
+              <time>22 February 2018</time>
+              <ul class="attributes">
+                <li>DfE and Ofqual</li>
+                <li>News story</li>
+              </ul>
+            </li>
+
+            <li>
+              <p><a href="">Education Secretary tours the Midlands and North of England</a></p>
+              <time>14 February 2018</time>
+              <ul class="attributes">
+                <li>DfE</li>
+                <li>News story</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <% if @tagged_content.search_results_count > 0 %>
+        <h2>Content Items - <%= @tagged_content.search_results_count %></h2>
+
+        <div class="tagged-content-groups">
+          <% grouped_tagged_content(@tagged_content.search_results).each do |document_type, content_items| %>
+            <div class="document-type-group-list">
+              <h3><%= document_type.humanize %>:</h3>
+              <ul>
+                <% content_items.take(5).each do |item| %>
+                  <li>
+                    <%= link_to(item["title"], "https://gov.uk#{item["link"]}" ) %>
+                  </li>
+                <% end %>
+              </ul>
+              <%= link_to("See more", "/topics#{@taxon.base_path}/#{document_type}" ) %>
+            </div>
+          <% end %>
         </div>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

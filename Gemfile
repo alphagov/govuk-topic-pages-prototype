@@ -14,7 +14,7 @@ gem "capybara"
 gem "poltergeist"
 gem "mime-types"
 gem "gds-api-adapters"
-gem "slimmer"
+gem "slimmer", "~> 12.0.0"
 gem "govuk_frontend_toolkit"
 group :development, :test do
   gem "pry"

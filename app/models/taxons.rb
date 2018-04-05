@@ -5,7 +5,8 @@ class Taxons
   end
 
   def level_one_taxons
-    live_level_one_taxons + draft_level_one_taxons
+    taxons = live_level_one_taxons + draft_level_one_taxons
+    taxons.sort_by! { |taxon| taxon["title"] }
   end
 
   private

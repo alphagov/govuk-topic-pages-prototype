@@ -13,10 +13,125 @@ h2 {
   @include bold-24;
 }
 
+h3 {
+  margin-bottom: $gutter-one-third;
+  @include bold-19;
+}
+
 ul {
   li {
   list-style-type: none;
   margin: 5px 0
+  }
+}
+
+#wrapper {
+  max-width: 100%;
+  width: auto;
+  margin: 0;
+}
+
+.topic-header {
+  background-color: $govuk-blue;
+  color: $white;
+  width: 100%;
+  padding-bottom: $gutter;
+  text-align: center;
+
+  .topic-header-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .govuk-beta-label {
+    margin: 0 15px;
+    p {
+      color: $white;
+    }
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.topic-content {
+  width: 100%;
+
+  .topic-content-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+.topic-section {
+  border-bottom: 1px solid $border-colour;
+  margin-bottom: $gutter;
+  padding-bottom: $gutter;
+}
+
+.sub-topics-wrapper {
+  width: 100%;
+  background-color: $highlight-colour;
+  padding: 1px 0 $gutter 0; // 1px padding to enclose heading margin
+
+  .sub-topics-inner {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .sub-topics-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: $gutter;
+    grid-row-gap: $gutter;
+
+    .sub-topics-item {
+      margin: 0;
+    }
+
+    h3 {
+      @include bold-19;
+      margin-top: 0;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.services-list {
+
+  li {
+    margin-bottom: $gutter;
+  }
+
+  h3 {
+    a {
+      text-decoration: none;
+    }
+  }
+}
+
+.time-based-list {
+  @include core-16;
+
+  time {
+    color: $secondary-text-colour;
+  }
+  ul.attributes {
+    color: $secondary-text-colour;
+
+    li {
+      display: inline;
+      margin-right: 5px;
+    }
+  }
+
+  &>li {
+    margin-bottom: $gutter;
   }
 }
 
@@ -40,9 +155,4 @@ ul {
 
 .document-type-group-list {
   margin: 0 0 $gutter;
-}
-
-h3 {
-  margin-bottom: $gutter-one-third;
-  @include bold-19;
 }
